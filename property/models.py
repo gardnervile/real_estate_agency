@@ -79,7 +79,9 @@ class Owner(models.Model):
         Flat,
         related_name="owners",
         verbose_name="Квартиры в собственности")
-
+    
+    def __str__(self):
+        return f"{self.owner} {self.owner_pure_phone}"
 
 class Complaint(models.Model):
     user = models.ForeignKey(User, verbose_name='Кто жаловался', on_delete=models.DO_NOTHING)
