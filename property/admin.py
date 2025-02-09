@@ -22,9 +22,9 @@ class FlatAdmin(admin.ModelAdmin):
 
 
 class OwnerAdmin(admin.ModelAdmin):
-    list_display = ('owner', 'owners_phonenumber', 'owner_pure_phone')
+    list_display = ('owner', 'phone', 'pure_phone')
     raw_id_fields = ('flats',)
-    readonly_fields = ('owner_pure_phone',)
+    readonly_fields = ('pure_phone',)
 
 
 
