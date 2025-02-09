@@ -94,3 +94,6 @@ class Complaint(models.Model):
         related_name='complaints')
     message = models.TextField('Текст жалобы', 
         blank=True)
+    
+    def __str__(self):
+        return f"Жалоба от {self.user.username} на {self.flat.address}"
