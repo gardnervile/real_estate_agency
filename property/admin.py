@@ -18,13 +18,13 @@ class FlatAdmin(admin.ModelAdmin):
     inlines = [FlatsInline]
 
     def get_owners(self, obj):
-        return ", ".join([owner.owner for owner in obj.owners.all()])
+        return ", ".join([owner.name for owner in obj.owners.all()])
     get_owners.short_description = "Владельцы"
 
 
 @admin.register(Owner)
 class OwnerAdmin(admin.ModelAdmin):
-    list_display = ('owner', 'phone', 'pure_phone')
+    list_display = ('name', 'phone', 'pure_phone')
     raw_id_fields = ('flats',)
     readonly_fields = ('pure_phone',)
 
