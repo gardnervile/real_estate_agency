@@ -18,8 +18,7 @@ class FlatAdmin(admin.ModelAdmin):
     inlines = [FlatsInline]
 
     def get_owners(self, obj):
-        return ", ".join([owner.name for owner in obj.owners.all()])
-    get_owners.short_description = "Владельцы"
+        return ", ".join([owner.name for owner in obj.owned_by.all()])
 
 
 @admin.register(Owner)

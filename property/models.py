@@ -54,11 +54,6 @@ class Flat(models.Model):
         verbose_name='Кто лайкнул', 
         blank=True)
 
-    owners = models.ManyToManyField(
-        "Owner",
-        related_name="owned_flats",
-        verbose_name="Владельцы квартиры")
-
     def __str__(self):
         return f'{self.town}, {self.address} ({self.price}р.)'
 
@@ -78,7 +73,7 @@ class Owner(models.Model):
         verbose_name="Квартиры в собственности")
 
     def __str__(self):
-        return f"{self.owner} {self.pure_phone}"
+        return f"{self.name} {self.pure_phone}"
 
 
 class Complaint(models.Model):
